@@ -1,0 +1,451 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Sangeetha Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: soapstone-and-verdigris single page. Hero pairs a big name with a switchable Java/Python/C++ code card over a faint Hoysala star plan (Hassan is home to Belur and Halebidu). Sections run as wide editorial rows. */
+:root {
+  --bg: #E8ECE6;
+  --surface: #F3F5F0;
+  --ink: #14201B;
+  --muted: #53625A;
+  --line: #C6CFC3;
+  --accent: #1D6B5E;
+  --accent-ink: #FFFFFF;
+  --spark: #C98512;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "DM Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --code-bg: #14201B;
+  --code-ink: #DDE7DF;
+  --code-dim: #8FA397;
+  --code-str: #E8B04A;
+  --code-kw: #6FD0BA;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1512; --surface: #16201B; --ink: #E6ECE5; --muted: #93A39A; --line: #263530;
+    --accent: #5CC4AE; --accent-ink: #0E1512; --spark: #E8B04A;
+    --code-bg: #0A100D; --code-ink: #DDE7DF; --code-dim: #7C9186; --code-str: #E8B04A; --code-kw: #6FD0BA;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1512; --surface: #16201B; --ink: #E6ECE5; --muted: #93A39A; --line: #263530;
+  --accent: #5CC4AE; --accent-ink: #0E1512; --spark: #E8B04A;
+  --code-bg: #0A100D; --code-ink: #DDE7DF; --code-dim: #7C9186; --code-str: #E8B04A; --code-kw: #6FD0BA;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.65;
+  padding-inline: 1rem; padding-block: 0;
+  -webkit-font-smoothing: antialiased;
+}
+@media (min-width: 720px) { body { padding-inline: 2rem; } }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 72rem; margin-inline: auto; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.05; letter-spacing: -0.02em; }
+p { margin: 0; }
+.label { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+/* header */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  margin-inline: -1rem; padding: 0.75rem 1rem;
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+@media (min-width: 720px) { .top { margin-inline: -2rem; padding-inline: 2rem; } }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.brand { font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; text-decoration: none; letter-spacing: -0.03em; }
+.brand span { color: var(--accent); }
+nav { display: flex; align-items: center; gap: 1.5rem; }
+nav a.nl { text-decoration: none; font-size: 0.9rem; color: var(--muted); font-weight: 500; }
+nav a.nl:hover { color: var(--ink); }
+@media (max-width: 719px) { nav a.nl.hide-sm { display: none; } nav { gap: 1rem; } }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem; font: inherit; font-size: 0.95rem; font-weight: 600;
+  padding: 0.65rem 1.1rem; border-radius: 0.5rem; text-decoration: none; cursor: pointer;
+  background: var(--accent); color: var(--accent-ink); border: 1px solid var(--accent);
+}
+.btn:hover { filter: brightness(1.08); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn.ghost:hover { border-color: var(--ink); filter: none; }
+.icon-btn {
+  width: 2.25rem; height: 2.25rem; display: grid; place-items: center; border-radius: 0.5rem;
+  background: transparent; color: var(--ink); border: 1px solid var(--line); cursor: pointer; font: inherit;
+}
+.icon-btn:hover { border-color: var(--ink); }
+
+/* hero */
+.hero { position: relative; padding-block: clamp(2.5rem, 7vw, 5.5rem) clamp(2.5rem, 6vw, 4.5rem); }
+.star { position: absolute; right: -6rem; top: -2rem; width: min(38rem, 90vw); color: var(--line); pointer-events: none; z-index: 0; }
+.hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; }
+@media (min-width: 900px) { .hero-grid { grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; } }
+.hero-grid > * { min-width: 0; }
+.coords { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin-bottom: 1.5rem; }
+.coords span::before { content: ""; display: inline-block; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--spark); margin-right: 0.6rem; vertical-align: 0.05em; }
+h1 { font-size: clamp(3.5rem, 13vw, 8.5rem); font-weight: 800; letter-spacing: -0.045em; line-height: 0.92; }
+h1 em { font-style: normal; color: var(--accent); }
+.lede { margin-top: 1.5rem; max-width: 34rem; font-size: clamp(1.1rem, 2.2vw, 1.3rem); color: var(--muted); }
+.lede b { color: var(--ink); font-weight: 600; }
+.cta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+
+.code {
+  background: var(--code-bg); color: var(--code-ink); border-radius: 0.75rem; overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--line) 60%, transparent);
+  box-shadow: 0 1.5rem 3rem -1.5rem rgba(10, 20, 15, 0.45);
+}
+.tabs { display: flex; gap: 0.25rem; padding: 0.5rem 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); overflow-x: auto; }
+.tab {
+  font-family: var(--font-mono); font-size: 0.8rem; color: var(--code-dim); background: transparent; border: 0;
+  padding: 0.55rem 0.9rem; border-radius: 0.4rem 0.4rem 0 0; cursor: pointer;
+}
+.tab[aria-selected="true"] { color: var(--code-ink); background: rgba(255,255,255,0.07); box-shadow: inset 0 -2px 0 var(--code-kw); }
+.code pre { margin: 0; padding: 1.25rem; overflow-x: auto; font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.75; min-height: 11.5rem; }
+.code .s { color: var(--code-str); }
+.code .k { color: var(--code-kw); }
+
+/* sections */
+section { padding-block: clamp(3rem, 7vw, 5.5rem); border-top: 1px solid var(--line); }
+.sec-head { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin-bottom: 2.5rem; }
+.sec-head > * { min-width: 0; }
+@media (min-width: 900px) { .sec-head { grid-template-columns: 14rem 1fr; gap: 2rem; align-items: baseline; } }
+h2 { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 800; max-width: 22ch; }
+
+.about { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+.about > * { min-width: 0; }
+@media (min-width: 900px) { .about { grid-template-columns: 14rem 1fr; gap: 2rem; } }
+.about p { max-width: 40rem; font-size: 1.15rem; }
+.about p + p { margin-top: 1.1rem; color: var(--muted); font-size: 1.05rem; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1.5rem 2rem; margin-top: 2.25rem; max-width: 40rem; }
+.facts div { border-top: 1px solid var(--line); padding-top: 0.75rem; }
+.facts dt { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 0.25rem 0 0; font-weight: 600; }
+
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.skill { background: var(--surface); border: 1px solid var(--line); border-radius: 0.75rem; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; min-width: 0; }
+.skill .tag { font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent); letter-spacing: 0.04em; }
+.skill h3 { font-size: 1.75rem; font-weight: 800; }
+.skill p { color: var(--muted); font-size: 0.98rem; }
+
+.lab { margin-top: 1rem; display: grid; grid-template-columns: 1fr; gap: 1.5rem; background: var(--surface); border: 1px solid var(--line); border-radius: 0.75rem; padding: 1.5rem; }
+.lab > * { min-width: 0; }
+@media (min-width: 800px) { .lab { grid-template-columns: 1fr 1fr; padding: 2rem; gap: 2.5rem; align-items: center; } }
+.lab h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+.lab p { color: var(--muted); font-size: 0.98rem; }
+.lab .row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+.stack-view { display: flex; flex-direction: column-reverse; gap: 0.4rem; min-height: 14.5rem; justify-content: flex-start; padding: 1rem; border: 1px dashed var(--line); border-radius: 0.5rem; position: relative; }
+.stack-view .cell {
+  font-family: var(--font-mono); font-size: 0.9rem; padding: 0.55rem 0.9rem; border-radius: 0.35rem;
+  background: var(--accent); color: var(--accent-ink); display: flex; justify-content: space-between;
+}
+.stack-view .cell.top { background: var(--spark); color: #14201B; }
+.stack-view .cell small { opacity: 0.75; font-size: 0.72rem; align-self: center; }
+.stack-view .empty { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); font-family: var(--font-mono); font-size: 0.85rem; }
+.stack-note { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); margin-top: 0.75rem; }
+
+.edu { display: grid; grid-template-columns: 1fr; gap: 1.25rem; border-top: 1px solid var(--line); padding-top: 1.5rem; }
+.edu > * { min-width: 0; }
+@media (min-width: 900px) { .edu { grid-template-columns: 14rem 1fr; gap: 2rem; } }
+.edu h3 { font-size: clamp(1.6rem, 3.5vw, 2.25rem); font-weight: 800; }
+.edu p { margin-top: 0.6rem; color: var(--muted); max-width: 38rem; }
+.pill { display: inline-block; font-family: var(--font-mono); font-size: 0.75rem; padding: 0.25rem 0.7rem; border-radius: 99px; border: 1px solid var(--accent); color: var(--accent); margin-bottom: 0.9rem; }
+
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; }
+.project { border: 1.5px dashed var(--line); border-radius: 0.75rem; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; min-height: 14rem; min-width: 0; }
+.project .label { color: var(--accent); }
+.project h3 { font-size: 1.4rem; font-weight: 800; }
+.project p { color: var(--muted); font-size: 0.98rem; }
+.project .tools { margin-top: auto; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.project .tools span { font-family: var(--font-mono); font-size: 0.72rem; padding: 0.2rem 0.55rem; border: 1px solid var(--line); border-radius: 0.3rem; color: var(--muted); }
+
+.contact-card { background: var(--code-bg); color: var(--code-ink); border-radius: 1rem; padding: clamp(1.75rem, 5vw, 3.5rem); position: relative; overflow: hidden; }
+.contact-card h2 { color: var(--code-ink); max-width: 16ch; }
+.contact-card p { margin-top: 1rem; color: var(--code-dim); max-width: 32rem; }
+.links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+.links a, .links button {
+  font: inherit; font-size: 0.95rem; font-weight: 500; color: var(--code-ink); text-decoration: none; cursor: pointer;
+  padding: 0.65rem 1rem; border-radius: 0.5rem; border: 1px solid rgba(255,255,255,0.22); background: transparent;
+}
+.links a:hover, .links button:hover { border-color: var(--code-kw); color: var(--code-kw); }
+.links .addr { font-family: var(--font-mono); font-size: 0.85rem; user-select: all; }
+.hint { font-family: var(--font-mono); font-size: 0.78rem; color: var(--code-dim); margin-top: 1.5rem; }
+
+footer { padding-block: 2rem 2.5rem; border-top: 1px solid var(--line); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; justify-content: space-between; color: var(--muted); font-size: 0.9rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .skill, .project { transition: transform .25s ease, border-color .25s ease; }
+  .skill:hover, .project:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .star { animation: spin 160s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .stack-view .cell { animation: drop .25s ease; }
+  @keyframes drop { from { transform: translateY(-14px); opacity: 0; } }
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Sangeetha, home">Sangeetha<span>.</span></a>
+    <nav aria-label="Primary">
+      <a class="nl hide-sm" href="#about">About</a>
+      <a class="nl hide-sm" href="#skills">Skills</a>
+      <a class="nl hide-sm" href="#education">Education</a>
+      <a class="nl hide-sm" href="#projects">Projects</a>
+      <a class="nl" href="#contact">Contact</a>
+      <button class="icon-btn" id="theme" type="button" aria-label="Switch colour theme" title="Switch theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <div class="hero">
+      <svg class="star" id="star" viewBox="-100 -100 200 200" fill="none" stroke="currentColor" stroke-width="0.6" aria-hidden="true"></svg>
+      <div class="hero-grid">
+        <div>
+          <div class="coords label"><span>Student</span><span>Hassan, Karnataka, India</span><span>12.99° N, 76.10° E</span></div>
+          <h1>Hi, I'm <em>Sangeetha</em></h1>
+          <p class="lede">A degree student who enjoys turning problems into clean code. I work in <b>Java</b>, <b>Python</b> and <b>C++</b>, and I like understanding how data structures make programs fast.</p>
+          <div class="cta">
+            <a class="btn" href="#projects">See my work</a>
+            <a class="btn ghost" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <div class="code" aria-label="The same profile written in three languages">
+          <div class="tabs" role="tablist" aria-label="Language">
+            <button class="tab" role="tab" id="t-java" aria-selected="true" data-lang="java">Java</button>
+            <button class="tab" role="tab" id="t-python" aria-selected="false" data-lang="python">Python</button>
+            <button class="tab" role="tab" id="t-cpp" aria-selected="false" data-lang="cpp">C++</button>
+          </div>
+          <pre id="snippet" role="tabpanel" tabindex="0"></pre>
+        </div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="about">
+        <div class="label">About</div>
+        <div>
+          <p>I'm a student from Hassan, a town in the Malnad foothills of Karnataka, known for the stone temples of Belur and Halebidu. Those buildings are a good reminder that careful structure and fine detail go together, and I try to bring the same care to my code.</p>
+          <p>I'm building a strong base in programming and data structures, and I'm looking for internships, projects and teams where I can keep learning by building real things.</p>
+          <dl class="facts">
+            <div><dt>Role</dt><dd>Student</dd></div>
+            <div><dt>Studying</dt><dd>Degree programme</dd></div>
+            <div><dt>Based in</dt><dd>Hassan, Karnataka</dd></div>
+            <div><dt>Languages</dt><dd>Java, Python, C++</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="sec-head">
+        <div class="label">Skills</div>
+        <h2>The tools I think in</h2>
+      </div>
+      <div class="skills">
+        <article class="skill"><span class="tag">object-oriented</span><h3>Java</h3><p>Classes, inheritance, interfaces and the collections framework for structured programs.</p></article>
+        <article class="skill"><span class="tag">scripting &amp; logic</span><h3>Python</h3><p>Readable code for problem solving, small tools and quick experiments.</p></article>
+        <article class="skill"><span class="tag">close to the machine</span><h3>C++</h3><p>Pointers, memory and the STL, with attention to how code actually runs.</p></article>
+        <article class="skill"><span class="tag">how data is organised</span><h3>Data Structures</h3><p>Arrays, linked lists, stacks, queues, trees and graphs, and when to pick each.</p></article>
+      </div>
+
+      <div class="lab">
+        <div>
+          <h3>Try a stack</h3>
+          <p>A stack is last in, first out. Push adds to the top, pop removes the top. Both run in O(1) time.</p>
+          <div class="row">
+            <button class="btn" id="push" type="button">Push</button>
+            <button class="btn ghost" id="pop" type="button">Pop</button>
+            <button class="btn ghost" id="reset" type="button">Reset</button>
+          </div>
+        </div>
+        <div>
+          <div class="stack-view" id="stack" role="img" aria-label="Stack visual"></div>
+          <p class="stack-note" id="stack-note"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="sec-head">
+        <div class="label">Education</div>
+        <h2>Learning the fundamentals properly</h2>
+      </div>
+      <div class="edu">
+        <div class="label">Now</div>
+        <div>
+          <span class="pill">In progress</span>
+          <h3>Bachelor's degree</h3>
+          <p>Studying computer science fundamentals with a focus on programming in Java, Python and C++, and on data structures and problem solving.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="sec-head">
+        <div class="label">Projects</div>
+        <h2>Work in progress, ready for your projects</h2>
+      </div>
+      <div class="projects">
+        <article class="project"><span class="label">Project slot 1</span><h3>Your first project</h3><p>Add a title, one line on what it does and a link to the code.</p><div class="tools"><span>Java</span></div></article>
+        <article class="project"><span class="label">Project slot 2</span><h3>Your second project</h3><p>A Python script, a mini app or a class assignment you are proud of.</p><div class="tools"><span>Python</span></div></article>
+        <article class="project"><span class="label">Project slot 3</span><h3>Your third project</h3><p>A data structure implementation or a C++ program with notes on how it works.</p><div class="tools"><span>C++</span><span>DS</span></div></article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-card">
+        <div class="label" style="color: var(--code-dim)">Contact</div>
+        <h2 style="margin-top: .75rem">Let's build something together</h2>
+        <p>I'm open to internships, collaborations and conversations about code. Reach out through any of these.</p>
+        <div class="links" id="links"></div>
+        <p class="hint" id="hint" hidden>Add your email, GitHub and LinkedIn in the CONTACT block of this page's script to show them here.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Sangeetha. Hassan, Karnataka, India.</span>
+    <span>Built with Java, Python and C++ in mind.</span>
+  </div>
+</footer>
+
+<script>
+/* CONTACT: fill these in and the links appear in the Contact section. */
+var CONTACT = { email: "", github: "", linkedin: "" };
+
+/* theme toggle */
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById("theme");
+  var saved = null;
+  try { saved = localStorage.getItem("theme"); } catch (e) {}
+  if (saved === "dark" || saved === "light") root.setAttribute("data-theme", saved);
+  btn.addEventListener("click", function () {
+    var cur = root.getAttribute("data-theme");
+    if (!cur) cur = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    var next = cur === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+})();
+
+/* Hoysala-style stellate plan: layered star polygons */
+(function () {
+  var svg = document.getElementById("star");
+  function star(points, outer, inner, rot) {
+    var d = [];
+    for (var i = 0; i < points * 2; i++) {
+      var r = i % 2 === 0 ? outer : inner;
+      var a = Math.PI * i / points + rot;
+      d.push((r * Math.cos(a)).toFixed(2) + "," + (r * Math.sin(a)).toFixed(2));
+    }
+    return '<polygon points="' + d.join(" ") + '"/>';
+  }
+  var out = "";
+  [[16, 96, 74, 0], [16, 82, 60, Math.PI / 16], [16, 66, 46, 0], [8, 50, 34, Math.PI / 8], [8, 34, 22, 0]].forEach(function (s) { out += star(s[0], s[1], s[2], s[3]); });
+  out += '<circle r="10"/>';
+  svg.innerHTML = out;
+})();
+
+/* code card */
+(function () {
+  var snippets = {
+    java: 'public class Sangeetha {\n    String role = "Student";\n    String home = "Hassan, Karnataka";\n    String[] skills = {"Java", "Python", "C++", "DS"};\n}',
+    python: 'class Sangeetha:\n    role = "Student"\n    home = "Hassan, Karnataka"\n    skills = ["Java", "Python", "C++", "DS"]\n',
+    cpp: 'struct Sangeetha {\n    std::string role = "Student";\n    std::string home = "Hassan, Karnataka";\n    std::vector<std::string> skills = {"Java", "Python", "C++", "DS"};\n};'
+  };
+  var keywords = /\b(public|class|struct|String|std|string|vector|self)\b/g;
+  var pre = document.getElementById("snippet");
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+  function esc(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  function render(lang) {
+    var html = esc(snippets[lang]);
+    html = html.replace(/"([^"]*)"/g, '<span class="s">"$1"</span>');
+    html = html.replace(/(^|[^\w">])\b(public|class|struct)\b/g, '$1<span class="k">$2</span>');
+    pre.innerHTML = html;
+    pre.setAttribute("aria-labelledby", "t-" + lang);
+    tabs.forEach(function (t) { t.setAttribute("aria-selected", t.dataset.lang === lang ? "true" : "false"); });
+  }
+  tabs.forEach(function (t) { t.addEventListener("click", function () { render(t.dataset.lang); }); });
+  render("java");
+})();
+
+/* stack demo */
+(function () {
+  var seed = ["arrays", "lists", "queues"];
+  var extra = ["trees", "graphs", "heaps", "tries", "hashing", "sorting"];
+  var items = seed.slice();
+  var n = 0;
+  var view = document.getElementById("stack");
+  var note = document.getElementById("stack-note");
+  function draw() {
+    view.innerHTML = "";
+    items.forEach(function (v, i) {
+      var c = document.createElement("div");
+      c.className = "cell" + (i === items.length - 1 ? " top" : "");
+      c.innerHTML = "<span>" + v + "</span><small>" + (i === items.length - 1 ? "top" : "[" + i + "]") + "</small>";
+      view.appendChild(c);
+    });
+    if (!items.length) {
+      var e = document.createElement("div");
+      e.className = "empty";
+      e.textContent = "stack is empty";
+      view.appendChild(e);
+    }
+    note.textContent = "size = " + items.length + (items.length ? "   peek() = " + items[items.length - 1] : "   pop() on empty returns nothing");
+    view.setAttribute("aria-label", "Stack with " + items.length + " items");
+  }
+  document.getElementById("push").addEventListener("click", function () {
+    if (items.length >= 7) { note.textContent = "stack is full for this demo, try pop"; return; }
+    items.push(extra[n % extra.length]); n++; draw();
+  });
+  document.getElementById("pop").addEventListener("click", function () { items.pop(); draw(); });
+  document.getElementById("reset").addEventListener("click", function () { items = seed.slice(); n = 0; draw(); });
+  draw();
+})();
+
+/* contact links */
+(function () {
+  var box = document.getElementById("links");
+  var any = false;
+  if (CONTACT.email) {
+    any = true;
+    var s = document.createElement("span");
+    s.className = "addr"; s.textContent = CONTACT.email;
+    s.style.cssText = "padding:.65rem 1rem;border:1px solid rgba(255,255,255,.22);border-radius:.5rem";
+    box.appendChild(s);
+    var b = document.createElement("button");
+    b.type = "button"; b.textContent = "Copy email";
+    b.addEventListener("click", function () {
+      var done = function () { b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy email"; }, 1800); };
+      try { navigator.clipboard.writeText(CONTACT.email).then(done, function () { var r = document.createRange(); r.selectNodeContents(s); var sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); }); } catch (e) {}
+    });
+    box.appendChild(b);
+  }
+  [["GitHub", CONTACT.github], ["LinkedIn", CONTACT.linkedin]].forEach(function (p) {
+    if (!p[1]) return;
+    any = true;
+    var a = document.createElement("a");
+    a.href = p[1]; a.target = "_blank"; a.rel = "noopener"; a.textContent = p[0];
+    box.appendChild(a);
+  });
+  if (!any) document.getElementById("hint").hidden = false;
+})();
+</script>
+
+</body></html>
